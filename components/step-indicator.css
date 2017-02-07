@@ -1,0 +1,36 @@
+[role="status"] {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+[role="status"] h1,
+[role="status"] progress {
+	flex: 0 100%;
+}
+
+[role="status"] progress {
+	-webkit-appearance: none;
+	appearance: none;
+	height: .5em;
+}
+
+[role="status"] progress::-webkit-progress-value {
+	background-color: #0ebeff;
+}
+
+[role="status"] ol {
+	flex: 1;
+	display: flex;
+	flex-flow: row nowrap;
+	list-style-type: none;
+	padding: 0;
+}
+
+[role="status"] ol li::after {
+	content: '>';
+	padding: 0 3vw;
+}
+
+[role="status"] ol li:last-of-type::after {
+	content: '';
+}
