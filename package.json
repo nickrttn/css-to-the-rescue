@@ -1,0 +1,25 @@
+{
+  "name": "css-to-the-rescue",
+  "version": "1.0.0",
+  "description": "Rating example makes use of Emoji from: http://emojione.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickrttn/css-to-the-rescue.git"
+  },
+  "author": "Nick Rutten <hello@nickrttn.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nickrttn/css-to-the-rescue/issues"
+  },
+  "homepage": "https://github.com/nickrttn/css-to-the-rescue#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.7.2",
+    "browser-sync": "^2.18.7",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^6.3.0"
+  }
+}
