@@ -1,0 +1,35 @@
+article {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+article h1 {
+	flex: 0 100%;
+}
+
+article figure {
+	margin: 0;
+	margin-right: 3vw;
+	margin-bottom: 1em;
+}
+
+article figcaption {
+	flex: 1;
+}
+
+article figcaption footer {
+	font-size: .7em;
+	color: lightgrey;
+	margin-bottom: 2em;
+}
+
+article figcaption footer time {
+	position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}

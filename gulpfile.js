@@ -21,6 +21,7 @@ gulp.task('watch', ['prefix'], function() {
 	});
 
 	gulp.watch("./*.css", ['prefix']);
+	gulp.watch("./components/*.css", ['prefix']);
 });
 
 gulp.task('default', ['watch']);

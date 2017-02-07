@@ -1,0 +1,71 @@
+[role="navigation"] h1 {
+	position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+[role="navigation"] ul {
+	display: flex;
+	flex-flow: row wrap;
+	list-style: none;
+	padding: 0;
+}
+
+[role="navigation"] ul ul {
+	margin-left: 3vw;
+}
+
+[role="navigation"] li {
+	flex: 1 100%;
+}
+
+@media screen and (min-width: 52.5em) {
+	[role="navigation"] li {
+		flex: 1;
+		max-height: 1.5em;
+	}
+
+	[role="navigation"] ul ul {
+		transition: transform .12s ease-in-out;
+		transform: scale(0);
+		transform-origin: left top;
+		flex-flow: column nowrap;
+		margin-left: 1.5vw;
+	}
+
+	[role="navigation"] li:hover ul {
+		transform: scale(1);
+	}
+}
+
+[role="navigation"] li li {
+	flex: 0;
+	margin-right: 3vw;
+}
+
+[role="navigation"] a {
+	display: block;
+	line-height: 2;
+	color: white;
+	font-weight: 500;
+	text-decoration: none;
+}
+
+[role="navigation"] a:hover, [role="navigation"] a:focus {
+	color: hotpink;
+}
+
+[role="navigation"] a[aria-label~='current'] {
+	color: #0ebeff;
+	font-weight: 800;
+}
+
+[role="navigation"] li li a {
+	font-size: .9em;
+	color: gray;
+}
