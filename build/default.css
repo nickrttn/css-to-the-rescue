@@ -5,6 +5,7 @@ body {
 	font-variant: common-ligatures;
 	min-height: 100vh;
 	background: #111;
+	margin: 0;
 }
 
 h1, h2, h3 {
@@ -36,7 +37,7 @@ a:visited {
 }
 
 body > h1 {
-	margin-left: 10vw;
+	margin-left: 5vw;
 }
 
 img {
@@ -46,9 +47,13 @@ img {
 }
 
 .component {
-	min-height: 100vh;
-	max-width: 80vw;
-	margin: 3vw 10vw;
+	max-width: 100%;
+	margin: 3vw 0 8vmax;
+}
+
+.component > h2,
+.component > p {
+	margin-left: 5vw;
 }
 
 .component__container {
@@ -56,4 +61,5 @@ img {
 	margin: 2vw 0;
 	padding: 2vw 5vw;
 	min-height: 40vh;
+	max-width: 100%;
 }

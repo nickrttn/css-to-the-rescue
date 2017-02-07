@@ -3,12 +3,12 @@
 	flex-flow: row wrap;
 }
 
-[role="status"] h1,
-[role="status"] progress {
-	flex: 0 100%;
+[role="status"] h1 {
+	flex: 1 100%;
 }
 
 [role="status"] progress {
+	flex: 1 100%;
 	-webkit-appearance: none;
 	appearance: none;
 	height: .5em;
@@ -19,18 +19,40 @@
 }
 
 [role="status"] ol {
-	flex: 1;
 	display: flex;
-	flex-flow: row nowrap;
-	list-style-type: none;
-	padding: 0;
+	flex: 1;
+	flex-flow: column nowrap;
 }
 
-[role="status"] ol li::after {
-	content: '>';
-	padding: 0 3vw;
+@media screen and (min-width: 38.4375em) {
+	[role="status"] ol {
+		flex-flow: row wrap;
+		justify-content: space-between;
+		list-style-type: none;
+		padding: 0;
+	}
+
+	[role="status"] ol li::after {
+		content: '\232A';
+		padding-left: 1.5em;
+	}
+
+		[role="status"] ol li:last-of-type::after {
+		content: '';
+		padding: 0;
+	}
 }
 
-[role="status"] ol li:last-of-type::after {
-	content: '';
+[role="status"] li,
+[role="status"] a,
+[role="status"] a:visited {
+	color: gray;
+}
+
+[role="status"] a {
+	text-decoration: none;
+}
+
+[role="status"] a[aria-label~="current"] {
+	color: #0ebeff;
 }
