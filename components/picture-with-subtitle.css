@@ -13,6 +13,10 @@ article figure {
 	margin-bottom: 1em;
 }
 
+article figure img {
+	max-height: 70vh;
+}
+
 article figcaption {
 	flex: 1;
 }

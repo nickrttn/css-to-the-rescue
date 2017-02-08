@@ -1,6 +1,7 @@
 [role="status"] {
 	display: flex;
 	flex-flow: row wrap;
+	max-width: 40em;
 }
 
 [role="status"] h1 {
@@ -24,22 +25,31 @@
 	flex-flow: column nowrap;
 }
 
+[role="status"] li {
+	flex: 1;
+}
+
 @media screen and (min-width: 38.4375em) {
 	[role="status"] ol {
 		flex-flow: row wrap;
 		justify-content: space-between;
+		align-items: center;
 		list-style-type: none;
 		padding: 0;
 	}
 
-	[role="status"] ol li::after {
+	[role="status"] li:nth-last-of-type(2),
+	[role="status"] li:last-of-type {
+		text-align: right;
+	}
+
+	[role="status"] li::after {
 		content: '\232A';
 		padding-left: 1.5em;
 	}
 
-		[role="status"] ol li:last-of-type::after {
-		content: '';
-		padding: 0;
+	[role="status"] li:last-of-type::after {
+		content: '•';
 	}
 }
 
