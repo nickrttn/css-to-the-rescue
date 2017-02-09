@@ -4,7 +4,8 @@
   "description": "Rating example makes use of Emoji from: http://emojione.com",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "surge --domain csstotherescue.surge.sh --project ./build"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
     "autoprefixer": "^6.7.2",
     "browser-sync": "^2.18.7",
     "gulp": "^3.9.1",
-    "gulp-postcss": "^6.3.0"
+    "gulp-postcss": "^6.3.0",
+    "postcss-import": "^9.1.0"
   }
 }

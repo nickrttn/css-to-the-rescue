@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Living Styleguide</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<h1>Living Styleguide</h1>
+
+<section class="component">
+	<h2>Navigation</h2>
+	<p>This is the navigation component. It lets users navigate through the website.</p>
+	<div class="component__container">
+		<nav role="navigation">
+    <h1>Main navigation</h1>
+
+    <ul>
+        <li><a href="#main-content" aria-label="Home, current page">Home</a></li>
+        <li>
+            <input type="checkbox" id="products">
+            <label for="products">Products</label>
+
+            <ul>
+                <li><a href="/products/rock">Rock</a></li>
+                <li><a href="/products/paper">Paper</a></li>
+                <li><a href="/products/scissors">Scissors</a></li>
+            </ul>
+
+        </li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+    </ul>
+</nav>
+
+	</div>
+</section>
+
+<section class="component">
+	<h2>Picture w/ subtitle</h2>
+	<p>This is a picture with a subtitle, or caption.</p>
+	<div class="component__container">
+		<article>
+			<h1>This picture has a title</h1>
+			<figure>
+				<!-- Portrait -->
+				<img src="https://vasilis.nl/voto/fotos/klein/170126170241-we-hebben-een-bortusk-1280.jpg" alt="A drawing of a colorful monster on a newspaper" />
+				<!-- Landscape -->
+				<!-- <img src="https://vasilis.nl/voto/fotos/klein/161001174911-verhuizen-1280.jpg" alt="A bulldozer transporting a beach house along a sunny beach" /> -->
+			</figure>
+			<figcaption>
+				<p>
+					There's also this big and in depth description of the picture. You often see this on newssites or photo blogs. You could also replace the photo with a video if needed.
+				</p>
+				<footer>
+					<time datetime="2017-02-06">6-2-2017</time> © 2017 <a href="https://vasilis.nl">Vasilis van Gemert</a>
+				</footer>
+			</figcaption>
+		</article>
+	</div>
+</section>
+
+<section class="component">
+	<h2>Step indicator</h2>
+	<p>This component indicates where a customer is in a process.</p>
+	<div class="component__container">
+		<nav role="status">
+	    <h1>Finish your order</h1>
+	    <progress value="0.25" max="1">25%</progress>
+	    <ol>
+	        <li><a href="/cart">Cart</a></li>
+	        <li><a href="#main-content" aria-label="Address, current step">Address</a></li>
+	        <li>Payment</li>
+	        <li>Confirm</li>
+	    </ol>
+		</nav>
+	</div>
+</section>
+
+<section class="component"></section>
+<section class="component"></section>
+<section class="component"></section>
+<section class="component"></section>
+
+</body>
+</html>

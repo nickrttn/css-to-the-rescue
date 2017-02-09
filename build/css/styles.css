@@ -1,0 +1,298 @@
+body {
+	font: 400 1em/1.5 Avenir, sans-serif;
+	font-size: calc(1em + .75vw);
+	font-feature-settings: 'kern', 'liga', 'calt', 'clig';
+	font-variant: common-ligatures;
+	min-height: 100vh;
+	background: #111;
+	margin: 0;
+}
+
+h1, h2, h3 {
+	color: hotpink;
+}
+
+h4, h5, h6, p, ol, li {
+	color: white;
+}
+
+p {
+	max-width: 35em;
+	min-width: 11.5em;
+	margin-top: 0;
+	margin-bottom: 2em;
+}
+
+a {
+	color: #0ebeff;
+	transition: color .12s ease-in-out;
+}
+
+a:hover, a:focus {
+	color: hotpink;
+}
+
+a:visited {
+	color: #016de8;
+}
+
+body > h1 {
+	margin-left: 5vw;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.component {
+	max-width: 100%;
+	margin: 3vw 0 8vmax;
+}
+
+.component > h2,
+.component > p {
+	margin-left: 5vw;
+}
+
+.component__container {
+	background: #222;
+	margin: 2vw 0;
+	padding: 2vw 5vw;
+	max-width: 100%;
+}
+
+[role="navigation"] :focus {
+	outline-color: hotpink;
+}
+
+[role="navigation"] h1 {
+	position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+[role="navigation"] ul {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-flow: row wrap;
+	    flex-flow: row wrap;
+	list-style: none;
+	padding: 0;
+}
+
+[role="navigation"] ul ul {
+	margin-left: 3vw;
+}
+
+[role="navigation"] li {
+	-ms-flex: 1 100%;
+	    flex: 1 100%;
+}
+
+[role="navigation"] input[type=checkbox] {
+	position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 52.5em) {
+	[role="navigation"] li {
+		-ms-flex: 1;
+		    flex: 1;
+		max-height: 1.5em;
+	}
+
+	[role="navigation"] ul ul {
+		transition: transform .12s ease-in-out;
+		transform: scale(0);
+		transform-origin: left top;
+		-ms-flex-flow: column nowrap;
+		    flex-flow: column nowrap;
+		margin-left: 1.5vw;
+	}
+
+	[role="navigation"] li:hover ul,
+	[role="navigation"] :checked ~ ul {
+		transform: scale(1);
+	}
+}
+
+[role="navigation"] li li {
+	-ms-flex: 0;
+	    flex: 0;
+	margin-right: 3vw;
+}
+
+[role="navigation"] label:after {
+	content: '⇩';
+	padding-left: .5em;
+}
+
+[role="navigation"] a,
+[role="navigation"] label {
+	display: block;
+	line-height: 2;
+	color: white;
+	font-weight: 500;
+	text-decoration: none;
+}
+
+[role="navigation"] a:hover,
+[role="navigation"] a:focus,
+[role="navigation"] label:hover,
+[role="navigation"] :checked + label {
+	color: hotpink;
+}
+
+[role="navigation"] [type="checkbox"]:focus ~ label {
+	color: hotpink;
+	outline-color: hotpink;
+	outline-style: auto;
+	outline-width: 5px;
+}
+
+[role="navigation"] a[aria-label~='current'] {
+	color: #0ebeff;
+	font-weight: 800;
+}
+
+[role="navigation"] li li a {
+	font-size: .9em;
+	color: gray;
+}
+
+article {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-flow: row wrap;
+	    flex-flow: row wrap;
+}
+
+article h1 {
+	-ms-flex: 0 100%;
+	    flex: 0 100%;
+}
+
+article figure {
+	margin: 0;
+	margin-right: 3vw;
+	margin-bottom: 1em;
+}
+
+article figure img {
+	max-height: 70vh;
+}
+
+article figcaption {
+	-ms-flex: 1;
+	    flex: 1;
+}
+
+article figcaption footer {
+	font-size: .7em;
+	color: lightgrey;
+	margin-bottom: 2em;
+}
+
+article figcaption footer time {
+	position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+[role="status"] {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-flow: row wrap;
+	    flex-flow: row wrap;
+	max-width: 40em;
+}
+
+[role="status"] h1 {
+	-ms-flex: 1 100%;
+	    flex: 1 100%;
+}
+
+[role="status"] progress {
+	-ms-flex: 1 100%;
+	    flex: 1 100%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	     appearance: none;
+	height: .5em;
+}
+
+[role="status"] progress::-webkit-progress-value {
+	background-color: #0ebeff;
+}
+
+[role="status"] ol {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex: 1;
+	    flex: 1;
+	-ms-flex-flow: column nowrap;
+	    flex-flow: column nowrap;
+}
+
+[role="status"] li {
+	-ms-flex: 1;
+	    flex: 1;
+}
+
+@media screen and (min-width: 38.4375em) {
+	[role="status"] ol {
+		-ms-flex-flow: row wrap;
+		    flex-flow: row wrap;
+		-ms-flex-pack: justify;
+		    justify-content: space-between;
+		-ms-flex-align: center;
+		    align-items: center;
+		list-style-type: none;
+		padding: 0;
+	}
+
+	[role="status"] li:nth-last-of-type(2),
+	[role="status"] li:last-of-type {
+		text-align: right;
+	}
+
+	[role="status"] li::after {
+		content: '\232A';
+		padding-left: 1.5em;
+	}
+
+	[role="status"] li:last-of-type::after {
+		content: '•';
+	}
+}
+
+[role="status"] li,
+[role="status"] a,
+[role="status"] a:visited {
+	color: gray;
+}
+
+[role="status"] a {
+	text-decoration: none;
+}
+
+[role="status"] a[aria-label~="current"] {
+	color: #0ebeff;
+}
