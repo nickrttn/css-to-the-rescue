@@ -1,5 +1,11 @@
+@font-face {
+	font-family: Ampersand;
+	src: local('Baskerville-Italic'), local('GoudyOldStyleT-Italic'), local('Garamond-Italic'), local('Palatino-Italic');
+	unicode-range: U+26;
+}
+
 body {
-	font: 400 1em/1.5 Avenir, sans-serif;
+	font: 400 1em/1.5 Ampersand, Avenir, sans-serif;
 	font-size: calc(1em + .75vw);
 	font-feature-settings: 'kern', 'liga', 'calt', 'clig';
 	font-variant: common-ligatures;
