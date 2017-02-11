@@ -22,6 +22,12 @@ gulp.task('html', function() {
 		.pipe(browserSync.stream());
 });
 
+gulp.task('js', function() {
+	return gulp.src('./src/*.js')
+		.pipe(gulp.dest('./build'))
+		.pipe(browserSync.stream());
+});
+
 gulp.task('watch', ['prefix'], function() {
 	browserSync.init({
 		server: {
@@ -31,6 +37,7 @@ gulp.task('watch', ['prefix'], function() {
 
 	gulp.watch("./src/**/*.css", ['prefix']);
 	gulp.watch('./src/*.html', ['html']);
+	gulp.watch('./src/*.js', ['js']);
 });
 
 gulp.task('default', ['watch']);
