@@ -234,6 +234,76 @@ article figcaption footer time {
   overflow: hidden;
 }
 
+.rating {
+	color: white;
+	border: 0;
+}
+
+.rating legend {
+	color: hotpink;
+	font-size: 1.25em;
+	font-weight: 600;
+}
+
+.rating div {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-flow: row nowrap;
+	    flex-flow: row nowrap;
+	-ms-flex-pack: start;
+	    justify-content: flex-start;
+	color: white;
+}
+
+.rating input[type=radio] {
+	position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+.rating label {
+	-ms-flex: 1;
+	    flex: 1;
+
+	display: -ms-flexbox;
+
+	display: flex;
+	-ms-flex-flow: column nowrap;
+	    flex-flow: column nowrap;
+	-ms-flex-align: center;
+	    align-items: center;
+	transition: all 80ms ease-in-out;
+}
+
+.rating :not(:checked) + label {
+	opacity: 0.4;
+}
+
+.rating label:hover {
+	cursor: pointer;
+	opacity: .8;
+	-ms-transform: scale(1.05);
+	    transform: scale(1.05);
+}
+
+.rating :checked + label {
+	opacity: 1;
+	-ms-transform: scale(1.1);
+	    transform: scale(1.1);
+	color: hsla(calc(attr(data-rating) * 20), 100%, 50%, 1);
+}
+
+.rating svg {
+	margin-top: .5em;
+	max-width: 2em;
+	height: auto;
+}
+
 [role="status"] {
 	display: -ms-flexbox;
 	display: flex;
