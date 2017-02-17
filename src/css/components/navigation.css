@@ -2,7 +2,8 @@
 	outline-color: hotpink;
 }
 
-[role="navigation"] h1 {
+[role="navigation"] h1,
+[role="navigation"] input[type=checkbox] {
 	position: absolute !important;
   clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px);
@@ -24,33 +25,24 @@
 	margin-left: 3vw;
 }
 
-[role="navigation"] li {
-	flex: 1 100%;
-}
-
-[role="navigation"] input[type=checkbox] {
-	position: absolute !important;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  padding:0 !important;
-  border:0 !important;
-  height: 1px !important;
-  width: 1px !important;
-  overflow: hidden;
-}
-
 @media screen and (min-width: 52.5em) {
-	[role="navigation"] li {
-		flex: 1;
-		max-height: 1.5em;
-	}
-
 	[role="navigation"] ul ul {
 		transition: transform .12s ease-in-out;
 		transform: scale(0);
 		transform-origin: left top;
 		flex-flow: column nowrap;
 		margin-left: 1.5vw;
+	}
+}
+
+[role="navigation"] li {
+	flex: 1 100%;
+}
+
+@media screen and (min-width: 52.5em) {
+	[role="navigation"] li {
+		flex: 1;
+		max-height: 1.5em;
 	}
 
 	[role="navigation"] li:hover ul,
@@ -62,11 +54,6 @@
 [role="navigation"] li li {
 	flex: 0;
 	margin-right: 3vw;
-}
-
-[role="navigation"] label:after {
-	content: '⇩';
-	padding-left: .5em;
 }
 
 [role="navigation"] a,
@@ -83,6 +70,11 @@
 [role="navigation"] label:hover,
 [role="navigation"] :checked + label {
 	color: hotpink;
+}
+
+[role="navigation"] label:after {
+	content: '⇩';
+	padding-left: .5em;
 }
 
 [role="navigation"] [type="checkbox"]:focus ~ label {

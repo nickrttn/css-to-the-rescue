@@ -18,7 +18,7 @@ h1, h2, h3 {
 	color: hotpink;
 }
 
-h4, h5, h6, p, ol, li {
+h4, h5, h6, p, ol, li, label {
 	color: white;
 }
 
@@ -42,6 +42,11 @@ a:visited {
 	color: #016de8;
 }
 
+a:visited:hover,
+a:visited:focus {
+	color: hotpink;
+}
+
 body > h1 {
 	margin-left: 5vw;
 }
@@ -49,6 +54,15 @@ body > h1 {
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+input, button, textarea {
+	font-size: inherit;
+}
+
+label + input,
+[type="checkbox"] + label {
+	margin-left: .5em;
 }
 
 .component {
