@@ -1,0 +1,185 @@
+/* Tone down the typography scale in articles a litte for higher readability. */
+article h1 {
+	color: var(--yellow);
+	font-size: 2.8333em;
+	line-height: 1.1667em;
+}
+
+article h1 a {
+	color: var(--yellow);
+	text-decoration: none;
+}
+
+article h1 a:visited {
+	color: var(--yellow);
+}
+
+article h1 a:before {
+	content: '';
+	position: absolute;
+	left: 0; top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+article p {
+	color: white;
+}
+
+article figure {
+	margin: 0;
+	width: fit-content;
+	max-width: fill;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: flex-start;
+}
+
+article figure img {
+	max-height: 70vh;
+	max-width: fill;
+	height: auto;
+	margin-right: 2vw;
+	margin-bottom: 1em;
+}
+
+article figcaption {
+	flex: 1;
+}
+
+article figcaption footer {
+	font-size: .8em;
+	color: grey;
+	margin-bottom: 2em;
+}
+
+article figcaption footer a,
+article figcaption footer a:visited {
+	color: grey;
+}
+
+article figcaption footer time {
+	position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+.media-list {
+	display: flex;
+	flex-flow: row wrap;
+	margin: 0;
+}
+
+@media screen and (min-width: 48.3125em) {
+ .media-list {
+		margin: -1em;
+ }
+}
+
+.media-list article {
+	flex: 0 100%;
+	margin: 0;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: flex-start;
+	position: relative;
+	cursor: pointer;
+}
+
+@media screen and (min-width: 48.3125em) {
+ .media-list article {
+		max-height: auto;
+ }
+}
+
+@media screen and (min-width: 48.3125em) {
+	.media-list article {
+		margin: 1em;
+		flex: 0 calc(33% - 2em);
+		flex-flow: row wrap;
+	}
+}
+
+.media-list article:hover {
+	background-color: var(--yellow-opaque);
+}
+
+.media-list article h1,
+.media-list article p {
+	flex: 0 1 auto;
+	margin-left: 2vmax;
+}
+
+.media-list article h1 {
+	font-size: 1.25em;
+	order: 2;
+}
+
+@media screen and (min-width: 48.3125em) {
+	.media-list article h1 {
+		flex: 0 100%;
+	}
+}
+
+.media-list article p {
+	display: none;
+	font-size: .8em;
+	order: 3;
+	margin-left: 2vmax;
+	margin-right: 2vmax;
+}
+
+@media screen and (min-width: 48.3125em) {
+	.media-list article p {
+		display: block;
+	}
+}
+
+.media-list article img {
+	flex: 0 15vw;
+	order: 1;
+	margin-bottom: 1em;
+	object-fit: contain;
+}
+
+@media screen and (min-width: 48.3125em) {
+	.media-list article img {
+		flex: 0 100%;
+		height: auto;
+		min-width: 100%;
+	}
+}
+
+.media-list article:first-of-type {
+	flex: 0 100%;
+	flex-flow: row wrap;
+	margin-bottom: 1.5em;
+	max-height: auto;
+}
+
+@media screen and (min-width: 48.3125em) {
+	.media-list article:first-of-type {
+		flex: 0 calc(100% - 2em);
+	}
+}
+
+.media-list article:first-of-type h1 {
+	flex: 0 100%;
+	order: 1;
+}
+
+.media-list article:first-of-type p {
+	display: block;
+}
+
+.media-list article:first-of-type img {
+	max-height: 20vmax;
+	object-fit: cover;
+	object-position: center;
+	min-width: 100%;
+}

@@ -15,13 +15,17 @@
 
 :root {
 	--yellow: #ffeb3b;
+	--yellow-opaque: rgba(255, 235, 59, 0.1);
+	--yellow-dark: #b2a317;
 	--black: rgba(0,0,0,0.87);
 	--gray: rgba(0,0,0,0.54);
 	--pink: rgba(204, 27, 105, 1);
+	--pink-opaque: rgba(204, 27, 105, .05);
 	--pink-dark: rgba(178, 32, 97, 1);
 	--blue-light: #0ebeff;
 	--blue-dark: #016de8;
 	--green: #33D473;
+	--green-opaque: rgba(51, 212, 115, .1);
 }
 
 /* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
@@ -47,11 +51,14 @@ body {
 h1, h2, h3 {
 	font-family: Rakkas, system, sans-serif;
 	font-weight: 400;
-	position: relative;
 	color: var(--black);
 }
 
 @supports(mix-blend-mode: overlay) {
+	section > h2 {
+		position: relative;
+	}
+
 	section > h2::after {
 		content: '';
 		position: absolute;
@@ -105,21 +112,21 @@ p {
 }
 
 a {
-	color: var(--blue-light);
+	color: var(--yellow);
 	transition: color .12s ease-in-out;
 }
 
 a:hover, a:focus {
-	color: var(--pink);
+	color: var(--green);
 }
 
 a:visited {
-	color: #016de8;
+	color: var(--yellow-dark);
 }
 
 a:visited:hover,
 a:visited:focus {
-	color: var(--pink);
+	color: var(--green);
 }
 
 img {
@@ -127,16 +134,136 @@ img {
 	height: auto;
 }
 
+form {
+	padding: 4vmin 4vmax;
+	transition: background 120ms ease-in-out;
+}
+
+form:invalid {
+	background-color: var(--yellow-opaque);
+}
+
+form:valid {
+	background-color: var(--green-opaque);
+}
+
 input, button, textarea {
 	font-size: inherit;
 }
 
+button {
+	appearance: none;
+	border: 0;
+	background-color: var(--yellow);
+	padding: 1vmin 1vmax;
+	border-radius: .25em;
+	box-shadow: 0 .1em 0 var(--yellow-dark);
+	transition: all 120ms ease-in-out;
+}
+
+button:hover,
+button:focus {
+	box-shadow: 0 .2em 0 var(--yellow-dark);
+	transform: translateY(-0.1em);
+}
+
+button:focus {
+	outline-color: var(--yellow-dark);
+}
+
+button:active {
+	box-shadow: inset 0 .1em 0 var(--yellow-dark);
+	transform: translateY(0);
+}
+
+button[type="reset"] {
+	background-color: var(--pink);
+	color: white;
+	box-shadow: 0 .1em 0 var(--pink-dark);
+}
+
+button[type="reset"]:hover,
+button[type="reset"]:focus {
+	box-shadow: 0 .2em 0 var(--pink-dark);
+}
+
+button[type="reset"]:focus {
+	outline-color: var(--pink-dark);
+}
+
+button[type="reset"]:active {
+	box-shadow: inset 0 .1em 0 var(--pink-dark);
+}
+
+/*button[type="submit"] {
+	background-color: var(--green);
+	box-shadow: 0 .1em 0 var(--yellow-dark);
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+	box-shadow: 0 .2em 0 var(--yellow-dark);
+}
+
+button[type="submit"]:focus {
+	outline-color: var(--yellow-dark);
+}
+
+button[type="submit"]:active {
+	box-shadow: inset 0 .1em 0 var(--yellow-dark);
+}*/
+
 label {
-	color: var(--blue-light);
+	color: var(--black);
+	display: inline-flex;
+	align-items: center;
+}
+
+[type="text"],
+[type="email"],
+[type="password"],
+[type="url"] {
+	padding: 1vmin 1vmax;
+	margin-bottom: 1em;
+	/*
+		if the pixel size is 16px at a viewport size of 320,
+		this should not be > 240px on small screen and will
+		always fit in the viewport.
+	*/
+	min-width: 15em;
+}
+
+[type="checkbox"],
+[type="radio"] {
+	padding: 0;
+	margin: 0;
+	margin-right: .5em;
+}
+
+input:focus {
+	outline-color: var(--yellow-dark);
+}
+
+menu, dialog {
+	padding: 0;
 }
 
 menu {
-	padding: 0;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+menu button {
+	flex: 1;
+	margin: 0 .5em;
+}
+
+menu button:first-of-type {
+	margin-left: 0;
+}
+
+menu button:last-of-type {
+	margin-right: 0;
 }
 
 body > header {
@@ -163,5 +290,5 @@ body > header p {
 .component {
 	background: var(--black);
 	margin-top: 5vmax;
-	padding: 5vmin 5vmax;
+	padding: 5vmin 3vmax;
 }

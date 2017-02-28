@@ -1,6 +1,26 @@
-.login-form {}
+.login-form ::backdrop {
+	background: rgba(0,0,0,0.9);
+}
 
 .login-form form {
 	display: flex;
 	flex-flow: column nowrap;
+}
+
+.login-form label {
+	margin-bottom: .25em;
+}
+
+.valid {
+	background-color: var(--green);
+	padding: 1vmin 1vmax;
+	border-radius: .25em;
+}
+
+.login-form form:invalid .valid {
+	display: none;
+}
+
+.login-form form:valid .valid {
+	display: block;
 }

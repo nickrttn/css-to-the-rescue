@@ -36,15 +36,18 @@
 
 (function() {
 	const toggle = document.querySelector('#login');
-	const cancel = document.querySelector('[type="reset"]');
+	const cancel = document.querySelector('.login-form [type="reset"]');
+	const submit = document.querySelector('.login-form [type="submit"]');
 	const dialog = document.querySelector('dialog');
 
 	toggle.addEventListener('click', () => {
 		dialog.showModal();
+		toggle.setAttribute('aria-expanded', true);
 	});
 
 	cancel.addEventListener('click', () => {
 		dialog.close();
+		toggle.setAttribute('aria-expanded', true);
 	});
 })();
 

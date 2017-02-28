@@ -17,13 +17,17 @@
 
 :root {
 	--yellow: #ffeb3b;
+	--yellow-opaque: rgba(255, 235, 59, 0.1);
+	--yellow-dark: #b2a317;
 	--black: rgba(0,0,0,0.87);
 	--gray: rgba(0,0,0,0.54);
 	--pink: rgba(204, 27, 105, 1);
+	--pink-opaque: rgba(204, 27, 105, .05);
 	--pink-dark: rgba(178, 32, 97, 1);
 	--blue-light: #0ebeff;
 	--blue-dark: #016de8;
 	--green: #33D473;
+	--green-opaque: rgba(51, 212, 115, .1);
 }
 
 /* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
@@ -52,11 +56,14 @@ body {
 h1, h2, h3 {
 	font-family: Rakkas, system, sans-serif;
 	font-weight: 400;
-	position: relative;
 	color: var(--black);
 }
 
 @supports(mix-blend-mode: overlay) {
+	section > h2 {
+		position: relative;
+	}
+
 	section > h2::after {
 		content: '';
 		position: absolute;
@@ -112,21 +119,21 @@ p {
 }
 
 a {
-	color: var(--blue-light);
+	color: var(--yellow);
 	transition: color .12s ease-in-out;
 }
 
 a:hover, a:focus {
-	color: var(--pink);
+	color: var(--green);
 }
 
 a:visited {
-	color: #016de8;
+	color: var(--yellow-dark);
 }
 
 a:visited:hover,
 a:visited:focus {
-	color: var(--pink);
+	color: var(--green);
 }
 
 img {
@@ -134,16 +141,145 @@ img {
 	height: auto;
 }
 
+form {
+	padding: 4vmin 4vmax;
+	transition: background 120ms ease-in-out;
+}
+
+form:invalid {
+	background-color: var(--yellow-opaque);
+}
+
+form:valid {
+	background-color: var(--green-opaque);
+}
+
 input, button, textarea {
 	font-size: inherit;
 }
 
+button {
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+	border: 0;
+	background-color: var(--yellow);
+	padding: 1vmin 1vmax;
+	border-radius: .25em;
+	box-shadow: 0 .1em 0 var(--yellow-dark);
+	transition: all 120ms ease-in-out;
+}
+
+button:hover,
+button:focus {
+	box-shadow: 0 .2em 0 var(--yellow-dark);
+	-ms-transform: translateY(-0.1em);
+	    transform: translateY(-0.1em);
+}
+
+button:focus {
+	outline-color: var(--yellow-dark);
+}
+
+button:active {
+	box-shadow: inset 0 .1em 0 var(--yellow-dark);
+	-ms-transform: translateY(0);
+	    transform: translateY(0);
+}
+
+button[type="reset"] {
+	background-color: var(--pink);
+	color: white;
+	box-shadow: 0 .1em 0 var(--pink-dark);
+}
+
+button[type="reset"]:hover,
+button[type="reset"]:focus {
+	box-shadow: 0 .2em 0 var(--pink-dark);
+}
+
+button[type="reset"]:focus {
+	outline-color: var(--pink-dark);
+}
+
+button[type="reset"]:active {
+	box-shadow: inset 0 .1em 0 var(--pink-dark);
+}
+
+/*button[type="submit"] {
+	background-color: var(--green);
+	box-shadow: 0 .1em 0 var(--yellow-dark);
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+	box-shadow: 0 .2em 0 var(--yellow-dark);
+}
+
+button[type="submit"]:focus {
+	outline-color: var(--yellow-dark);
+}
+
+button[type="submit"]:active {
+	box-shadow: inset 0 .1em 0 var(--yellow-dark);
+}*/
+
 label {
-	color: var(--blue-light);
+	color: var(--black);
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	-ms-flex-align: center;
+	    align-items: center;
+}
+
+[type="text"],
+[type="email"],
+[type="password"],
+[type="url"] {
+	padding: 1vmin 1vmax;
+	margin-bottom: 1em;
+	/*
+		if the pixel size is 16px at a viewport size of 320,
+		this should not be > 240px on small screen and will
+		always fit in the viewport.
+	*/
+	min-width: 15em;
+}
+
+[type="checkbox"],
+[type="radio"] {
+	padding: 0;
+	margin: 0;
+	margin-right: .5em;
+}
+
+input:focus {
+	outline-color: var(--yellow-dark);
+}
+
+menu, dialog {
+	padding: 0;
 }
 
 menu {
-	padding: 0;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-flow: row wrap;
+	    flex-flow: row wrap;
+}
+
+menu button {
+	-ms-flex: 1;
+	    flex: 1;
+	margin: 0 .5em;
+}
+
+menu button:first-of-type {
+	margin-left: 0;
+}
+
+menu button:last-of-type {
+	margin-right: 0;
 }
 
 body > header {
@@ -170,7 +306,7 @@ body > header p {
 .component {
 	background: var(--black);
 	margin-top: 5vmax;
-	padding: 5vmin 5vmax;
+	padding: 5vmin 3vmax;
 }
 
 [role="navigation"] :focus {
@@ -300,73 +436,12 @@ body > header p {
 	color: gray;
 }
 
-article h1 {
-	color: var(--green);
-}
-
-article p {
-	color: white;
-}
-
-article figure {
-	margin: 0;
-	width: -webkit-fit-content;
-	width: -moz-fit-content;
-	width: fit-content;
-	max-width: -webkit-fill-available;
-	max-width: -moz-available;
-	max-width: fill;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-flow: row wrap;
-	    flex-flow: row wrap;
-	-ms-flex-align: start;
-	    align-items: flex-start;
-}
-
-article figure img {
-	max-height: 70vh;
-	max-width: -webkit-fill-available;
-	max-width: -moz-available;
-	max-width: fill;
-	height: auto;
-	margin-right: 2vw;
-	margin-bottom: 1em;
-}
-
-article figcaption {
-	-ms-flex: 1;
-	    flex: 1;
-}
-
-article figcaption footer {
-	font-size: .8em;
-	color: grey;
-	margin-bottom: 2em;
-}
-
-article figcaption footer a,
-article figcaption footer a:visited {
-	color: grey;
-}
-
-article figcaption footer time {
-	position: absolute !important;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  padding:0 !important;
-  border:0 !important;
-  height: 1px !important;
-  width: 1px !important;
-  overflow: hidden;
-}
-
 .rating {
 	border: 0;
 }
 
 .rating legend {
-	color: var(--green);
+	color: var(--yellow);
 	font-size: 1.25em;
 	font-weight: 600;
 	margin-bottom: 1em;
@@ -488,7 +563,10 @@ article figcaption footer time {
 [role="status"] h1 {
 	-ms-flex: 1 100%;
 	    flex: 1 100%;
-	color: var(--green);
+	color: var(--yellow);
+	font-family: 'Fira Sans', system, sans-serif;
+	font-weight: 800;
+	font-size: 1.25em;
 }
 
 [role="status"] progress {
@@ -532,7 +610,6 @@ article figcaption footer time {
 		-ms-flex-align: center;
 		    align-items: center;
 		padding: 0;
-		color: blue;
 	}
 }
 
@@ -544,6 +621,7 @@ article figcaption footer time {
 	        clip-path: polygon(0 0, 97% 0, 100% 50%, 97% 100%, 0 100%, 3% 50%);
 	padding: 1vmin 3em;
 	position: relative;
+	transition: background ease-in-out 200ms;
 }
 
 [role="status"] li::before {
@@ -581,11 +659,254 @@ article figcaption footer time {
 	text-decoration: none;
 }
 
-.login-form {}
+.login-form ::-webkit-backdrop {
+	background: rgba(0,0,0,0.9);
+}
+
+.login-form ::backdrop {
+	background: rgba(0,0,0,0.9);
+}
 
 .login-form form {
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-flow: column nowrap;
 	    flex-flow: column nowrap;
+}
+
+.login-form label {
+	margin-bottom: .25em;
+}
+
+.valid {
+	background-color: var(--green);
+	padding: 1vmin 1vmax;
+	border-radius: .25em;
+}
+
+.login-form form:invalid .valid {
+	display: none;
+}
+
+.login-form form:valid .valid {
+	display: block;
+}
+
+/* This includes 'picture with subtitle' as well as 'media item'. */
+
+/* Tone down the typography scale in articles a litte for higher readability. */
+
+article h1 {
+	color: var(--yellow);
+	font-size: 2.8333em;
+	line-height: 1.1667em;
+}
+
+article h1 a {
+	color: var(--yellow);
+	text-decoration: none;
+}
+
+article h1 a:visited {
+	color: var(--yellow);
+}
+
+article h1 a:before {
+	content: '';
+	position: absolute;
+	left: 0; top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+article p {
+	color: white;
+}
+
+article figure {
+	margin: 0;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+	max-width: -webkit-fill-available;
+	max-width: -moz-available;
+	max-width: fill;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-flow: row wrap;
+	    flex-flow: row wrap;
+	-ms-flex-align: start;
+	    align-items: flex-start;
+}
+
+article figure img {
+	max-height: 70vh;
+	max-width: -webkit-fill-available;
+	max-width: -moz-available;
+	max-width: fill;
+	height: auto;
+	margin-right: 2vw;
+	margin-bottom: 1em;
+}
+
+article figcaption {
+	-ms-flex: 1;
+	    flex: 1;
+}
+
+article figcaption footer {
+	font-size: .8em;
+	color: grey;
+	margin-bottom: 2em;
+}
+
+article figcaption footer a,
+article figcaption footer a:visited {
+	color: grey;
+}
+
+article figcaption footer time {
+	position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+.media-list {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-flow: row wrap;
+	    flex-flow: row wrap;
+	margin: 0;
+}
+
+@media screen and (min-width: 48.3125em) {
+ .media-list {
+		margin: -1em;
+ }
+}
+
+.media-list article {
+	-ms-flex: 0 100%;
+	    flex: 0 100%;
+	margin: 0;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-flow: row nowrap;
+	    flex-flow: row nowrap;
+	-ms-flex-align: start;
+	    align-items: flex-start;
+	position: relative;
+	cursor: pointer;
+}
+
+@media screen and (min-width: 48.3125em) {
+ .media-list article {
+		max-height: auto;
+ }
+}
+
+@media screen and (min-width: 48.3125em) {
+	.media-list article {
+		margin: 1em;
+		-ms-flex: 0 calc(33% - 2em);
+		    flex: 0 calc(33% - 2em);
+		-ms-flex-flow: row wrap;
+		    flex-flow: row wrap;
+	}
+}
+
+.media-list article:hover {
+	background-color: var(--yellow-opaque);
+}
+
+.media-list article h1,
+.media-list article p {
+	-ms-flex: 0 1 auto;
+	    flex: 0 1 auto;
+	margin-left: 2vmax;
+}
+
+.media-list article h1 {
+	font-size: 1.25em;
+	-ms-flex-order: 2;
+	    order: 2;
+}
+
+@media screen and (min-width: 48.3125em) {
+	.media-list article h1 {
+		-ms-flex: 0 100%;
+		    flex: 0 100%;
+	}
+}
+
+.media-list article p {
+	display: none;
+	font-size: .8em;
+	-ms-flex-order: 3;
+	    order: 3;
+	margin-left: 2vmax;
+	margin-right: 2vmax;
+}
+
+@media screen and (min-width: 48.3125em) {
+	.media-list article p {
+		display: block;
+	}
+}
+
+.media-list article img {
+	-ms-flex: 0 15vw;
+	    flex: 0 15vw;
+	-ms-flex-order: 1;
+	    order: 1;
+	margin-bottom: 1em;
+	object-fit: contain;
+}
+
+@media screen and (min-width: 48.3125em) {
+	.media-list article img {
+		-ms-flex: 0 100%;
+		    flex: 0 100%;
+		height: auto;
+		min-width: 100%;
+	}
+}
+
+.media-list article:first-of-type {
+	-ms-flex: 0 100%;
+	    flex: 0 100%;
+	-ms-flex-flow: row wrap;
+	    flex-flow: row wrap;
+	margin-bottom: 1.5em;
+	max-height: auto;
+}
+
+@media screen and (min-width: 48.3125em) {
+	.media-list article:first-of-type {
+		-ms-flex: 0 calc(100% - 2em);
+		    flex: 0 calc(100% - 2em);
+	}
+}
+
+.media-list article:first-of-type h1 {
+	-ms-flex: 0 100%;
+	    flex: 0 100%;
+	-ms-flex-order: 1;
+	    order: 1;
+}
+
+.media-list article:first-of-type p {
+	display: block;
+}
+
+.media-list article:first-of-type img {
+	max-height: 20vmax;
+	object-fit: cover;
+	object-position: center;
+	min-width: 100%;
 }

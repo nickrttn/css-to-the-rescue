@@ -1,6 +1,8 @@
 @import url('base.css');
 @import url('components/navigation.css');
-@import url('components/picture-with-subtitle.css');
 @import url('components/rating.css');
 @import url('components/step-indicator.css');
 @import url('components/login-form.css');
+
+/* This includes 'picture with subtitle' as well as 'media item'. */
+@import url('components/article.css');
