@@ -234,6 +234,14 @@ textarea {
 	min-width: 15em;
 }
 
+[type="text"]:focus,
+[type="email"]:focus,
+[type="password"]:focus,
+[type="url"]:focus,
+textarea:focus {
+	outline-color: var(--yellow-dark);
+}
+
 [type="checkbox"],
 [type="radio"] {
 	padding: 0;

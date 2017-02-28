@@ -247,6 +247,14 @@ textarea {
 	min-width: 15em;
 }
 
+[type="text"]:focus,
+[type="email"]:focus,
+[type="password"]:focus,
+[type="url"]:focus,
+textarea:focus {
+	outline-color: var(--yellow-dark);
+}
+
 [type="checkbox"],
 [type="radio"] {
 	padding: 0;
@@ -605,6 +613,7 @@ body > header p {
 	    flex-flow: column nowrap;
 	margin: 0.25em 0;
 	list-style-type: none;
+	padding: 0;
 }
 
 @media screen and (min-width: 38.4375em) {
@@ -615,7 +624,6 @@ body > header p {
 		    justify-content: space-between;
 		-ms-flex-align: center;
 		    align-items: center;
-		padding: 0;
 	}
 }
 
@@ -623,32 +631,50 @@ body > header p {
 	-ms-flex: 1;
 	    flex: 1;
 	background-color: var(--yellow);
-	-webkit-clip-path: polygon(0 0, 97% 0, 100% 50%, 97% 100%, 0 100%, 3% 50%);
-	        clip-path: polygon(0 0, 97% 0, 100% 50%, 97% 100%, 0 100%, 3% 50%);
-	padding: 1vmin 3em;
+	-webkit-clip-path: polygon(0 0, 5% 0, 10% 10%, 15% 0, 100% 0, 100% 90%, 15% 90%, 10% 100%, 5% 90%, 0 90%);
+	        clip-path: polygon(0 0, 5% 0, 10% 10%, 15% 0, 100% 0, 100% 90%, 15% 90%, 10% 100%, 5% 90%, 0 90%);
+	padding: 2vmin 0 2vmin;
+	padding-left: 20%;
 	position: relative;
 	transition: background ease-in-out 200ms;
+}
+
+[role="status"] li:first-of-type {
+	-webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 15% 90%, 10% 100%, 5% 90%, 0 90%);
+	        clip-path: polygon(0 0, 100% 0, 100% 90%, 15% 90%, 10% 100%, 5% 90%, 0 90%);
+}
+
+[role="status"] li:last-of-type {
+	-webkit-clip-path: polygon(0 0, 5% 0, 10% 10%, 15% 0, 100% 0, 100% 90%, 0 90%);
+	        clip-path: polygon(0 0, 5% 0, 10% 10%, 15% 0, 100% 0, 100% 90%, 0 90%);
+}
+
+@media screen and (min-width: 38.4375em) {
+	[role="status"] li {
+		-webkit-clip-path: polygon(0 0, 97% 0, 100% 50%, 97% 100%, 0 100%, 3% 50%);
+		        clip-path: polygon(0 0, 97% 0, 100% 50%, 97% 100%, 0 100%, 3% 50%);
+	}
+
+	[role="status"] li:first-of-type {
+		-webkit-clip-path: polygon(0 0, 97% 0, 100% 50%, 97% 100%, 0 100%);
+		        clip-path: polygon(0 0, 97% 0, 100% 50%, 97% 100%, 0 100%);
+	}
+
+	[role="status"] li:last-of-type {
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 3% 50%);
+		        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 3% 50%);
+	}
 }
 
 [role="status"] li::before {
 	content: counter(steps);
 	counter-increment: steps;
 	position: absolute;
-	left: 1.5em;
+	left: 10%;
 	top: 50%;
 	font-weight: 800;
-	-ms-transform: translateY(-50%);
-	    transform: translateY(-50%);
-}
-
-[role="status"] li:first-of-type {
-	-webkit-clip-path: polygon(0 0, 97% 0, 100% 50%, 97% 100%, 0 100%);
-	        clip-path: polygon(0 0, 97% 0, 100% 50%, 97% 100%, 0 100%);
-}
-
-[role="status"] li:last-of-type {
-	-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 3% 50%);
-	        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 3% 50%);
+	-ms-transform: translateY(-50%) translateX(-50%);
+	    transform: translateY(-50%) translateX(-50%);
 }
 
 [role="status"] [aria-label~="current"] {
@@ -717,7 +743,7 @@ body > header p {
 	margin-bottom: 1.5em;
 }
 
-.chat li:nth-of-type(even) {
+.chat li:nth-of-type(odd) {
 	-ms-flex-item-align: end;
 	    align-self: flex-end;
 }

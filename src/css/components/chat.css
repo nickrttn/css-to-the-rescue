@@ -14,7 +14,7 @@
 	margin-bottom: 1.5em;
 }
 
-.chat li:nth-of-type(even) {
+.chat li:nth-of-type(odd) {
 	align-self: flex-end;
 }
 
