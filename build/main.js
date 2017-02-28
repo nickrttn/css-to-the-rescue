@@ -4,7 +4,7 @@
 		const breakpoint = window.matchMedia('(min-width: 52.5em)');
 
 		// Toggle the items to tabindex 0 outside of the relevant breakpoint
-		breakpoint.addListener(() => {
+		breakpoint.addListener(function() {
 			toggleNavigationItems();
 		});
 
@@ -17,17 +17,34 @@
 				checkbox.addEventListener('change', () => {
 					if (checkbox.checked) {
 						secondaryNavItems.forEach(link => link.tabIndex = '0');
+						checkbox.setAttribute('aria-expanded', true);
 					} else {
 						secondaryNavItems.forEach(link => link.tabIndex = '-1');
+						checkbox.setAttribute('aria-expanded', false);
 					}
 				});
 			} else {
 				secondaryNavItems.forEach(link => link.tabIndex = '0');
+				checkbox.setAttribute('aria-expanded', true);
 			}
 		}
 
 		// Toggle the items to tabindex -1 once if applicable.
 		toggleNavigationItems();
 	}
+})();
+
+(function() {
+	const toggle = document.querySelector('#login');
+	const cancel = document.querySelector('[type="reset"]');
+	const dialog = document.querySelector('dialog');
+
+	toggle.addEventListener('click', () => {
+		dialog.showModal();
+	});
+
+	cancel.addEventListener('click', () => {
+		dialog.close();
+	});
 })();
 

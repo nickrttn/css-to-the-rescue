@@ -1,3 +1,11 @@
+article h1 {
+	color: var(--green);
+}
+
+article p {
+	color: white;
+}
+
 article figure {
 	margin: 0;
 	width: fit-content;

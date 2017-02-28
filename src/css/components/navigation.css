@@ -1,14 +1,15 @@
 [role="navigation"] :focus {
-	outline-color: hotpink;
+	outline-color: var(--yellow);
 }
 
+/* Hide the navigation's h1 and checkbox but keep them available for screenreaders. */
 [role="navigation"] h1,
 [role="navigation"] input[type=checkbox] {
 	position: absolute !important;
   clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px);
-  padding:0 !important;
-  border:0 !important;
+  padding: 0 !important;
+  border: 0 !important;
   height: 1px !important;
   width: 1px !important;
   overflow: hidden;
@@ -19,20 +20,6 @@
 	flex-flow: row wrap;
 	list-style: none;
 	padding: 0;
-}
-
-[role="navigation"] ul ul {
-	margin-left: 3vw;
-}
-
-@media screen and (min-width: 52.5em) {
-	[role="navigation"] ul ul {
-		transition: transform .12s ease-in-out;
-		transform: scale(0);
-		transform-origin: left top;
-		flex-flow: column nowrap;
-		margin-left: 1.5vw;
-	}
 }
 
 [role="navigation"] li {
@@ -51,25 +38,65 @@
 	}
 }
 
+[role="navigation"] ul ul {
+	padding: 1vmin 1vmax;
+	margin-left: 3vw;
+}
+
+@media screen and (min-width: 52.5em) {
+	[role="navigation"] ul ul {
+		transition: transform .12s ease-in-out;
+		transform: scale(0);
+		transform-origin: left top;
+		flex-flow: column nowrap;
+		background-color: var(--black);
+		margin-left: 0;
+		max-width: 10rem;
+	}
+}
+
 [role="navigation"] li li {
 	flex: 0;
 	margin-right: 3vw;
 }
 
+[role="navigation"] label {
+	cursor: pointer;
+}
+
 [role="navigation"] a,
 [role="navigation"] label {
 	display: block;
+	color: var(--yellow);
 	line-height: 2;
-	color: white;
 	font-weight: 500;
 	text-decoration: none;
 }
 
 [role="navigation"] a:hover,
 [role="navigation"] a:focus,
+[role="navigation"] a:visited:hover,
+[role="navigation"] a:visited:focus,
 [role="navigation"] label:hover,
+[role="navigation"] [type="checkbox"]:focus + label {
+	text-decoration: underline;
+}
+
+[role="navigation"] a:visited {
+	color: var(--green);
+}
+
+[role="navigation"] [aria-label~='current'],
 [role="navigation"] :checked + label {
-	color: hotpink;
+	color: var(--green);
+}
+
+[role="navigation"] [aria-label~='current']:hover {
+	text-decoration: underline;
+}
+
+[role="navigation"] label {
+	margin-left: 0;
 }
 
 [role="navigation"] label:after {
@@ -77,16 +104,10 @@
 	padding-left: .5em;
 }
 
-[role="navigation"] [type="checkbox"]:focus ~ label {
-	color: hotpink;
-	outline-color: hotpink;
+[role="navigation"] [type="checkbox"]:focus + label {
+	outline-color: var(--yellow);
 	outline-style: auto;
 	outline-width: 5px;
-}
-
-[role="navigation"] a[aria-label~='current'] {
-	color: #0ebeff;
-	font-weight: 800;
 }
 
 [role="navigation"] li li a {

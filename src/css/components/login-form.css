@@ -1,0 +1,6 @@
+.login-form {}
+
+.login-form form {
+	display: flex;
+	flex-flow: column nowrap;
+}

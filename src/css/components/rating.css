@@ -1,59 +1,101 @@
 .rating {
-	color: white;
 	border: 0;
 }
 
 .rating legend {
-	color: hotpink;
+	color: var(--green);
 	font-size: 1.25em;
 	font-weight: 600;
+	margin-bottom: 1em;
 }
 
 .rating div {
 	display: flex;
-	flex-flow: row nowrap;
+	flex-flow: row wrap;
 	justify-content: flex-start;
-	color: white;
+	position: relative;
+	max-width: 100%;
 }
 
 .rating input[type=radio] {
 	position: absolute !important;
   clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px);
-  padding:0 !important;
-  border:0 !important;
+  padding: 0 !important;
+  border: 0 !important;
   height: 1px !important;
   width: 1px !important;
   overflow: hidden;
 }
 
 .rating label {
-	flex: 1;
-
 	display: flex;
-	flex-flow: column nowrap;
+	flex-flow: row nowrap;
 	align-items: center;
 	transition: all 80ms ease-in-out;
+	margin-right: .5em;
+	color: var(--yellow);
+	margin-bottom: 1em;
+}
+
+@media screen and (min-width: 32.125em) {
+	.rating label {
+		margin-right: 2em;
+	}
+
+	.rating label:last-of-type {
+		margin-right: 0;
+	}
 }
 
 .rating :not(:checked) + label {
 	opacity: 0.4;
 }
 
+.rating label {
+	filter: blur(2px);
+}
+
 .rating label:hover {
 	cursor: pointer;
 	opacity: .8;
 	transform: scale(1.05);
+	filter: blur(1px);
+}
+
+.rating :indeterminate + label {
+	filter: blur(0);
 }
 
 .rating :checked + label {
+	filter: none;
 	opacity: 1;
 	transform: scale(1.1);
-	color: hsla(calc(attr(data-rating) * 20), 100%, 50%, 1);
+}
+
+.rating :checked + label span {
+	color: var(--green);
+}
+
+.rating span {
+	order: 1;
+	display: none;
+}
+
+@media screen and (min-width: 32.125em) {
+	.rating span {
+		display: inline-block;
+	}
 }
 
 .rating svg {
-	margin-top: .5em;
-	max-width: 2em;
+	order: 0;
+	width: 2em;
 	height: auto;
+}
+
+@media screen and (min-width: 32.125em) {
+	.rating svg {
+		margin-right: .5em;
+	}
 }
