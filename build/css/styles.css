@@ -283,7 +283,7 @@ menu button:last-of-type {
 	margin-right: 0;
 }
 
-footer p {
+footer {
 	font-size: .8em;
 	color: var(--gray);
 }
