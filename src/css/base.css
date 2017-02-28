@@ -18,7 +18,7 @@
 	--yellow-opaque: rgba(255, 235, 59, 0.1);
 	--yellow-dark: #b2a317;
 	--black: rgba(0,0,0,0.87);
-	--gray: rgba(0,0,0,0.54);
+	--gray: #666;
 	--pink: rgba(204, 27, 105, 1);
 	--pink-opaque: rgba(204, 27, 105, .05);
 	--pink-dark: rgba(178, 32, 97, 1);
@@ -222,7 +222,8 @@ label {
 [type="text"],
 [type="email"],
 [type="password"],
-[type="url"] {
+[type="url"],
+textarea {
 	padding: 1vmin 1vmax;
 	margin-bottom: 1em;
 	/*
@@ -264,6 +265,11 @@ menu button:first-of-type {
 
 menu button:last-of-type {
 	margin-right: 0;
+}
+
+footer p {
+	font-size: .8em;
+	color: var(--gray);
 }
 
 body > header {

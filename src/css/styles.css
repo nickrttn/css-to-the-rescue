@@ -3,6 +3,7 @@
 @import url('components/rating.css');
 @import url('components/step-indicator.css');
 @import url('components/login-form.css');
+@import url('components/chat.css');
 
 /* This includes 'picture with subtitle' as well as 'media item'. */
 @import url('components/article.css');

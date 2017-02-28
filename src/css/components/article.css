@@ -48,8 +48,6 @@ article figcaption {
 }
 
 article figcaption footer {
-	font-size: .8em;
-	color: grey;
 	margin-bottom: 2em;
 }
 
@@ -137,6 +135,7 @@ article figcaption footer time {
 @media screen and (min-width: 48.3125em) {
 	.media-list article p {
 		display: block;
+		columns: calc(50vw - 2rem);
 	}
 }
 

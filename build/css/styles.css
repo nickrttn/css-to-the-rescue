@@ -20,7 +20,7 @@
 	--yellow-opaque: rgba(255, 235, 59, 0.1);
 	--yellow-dark: #b2a317;
 	--black: rgba(0,0,0,0.87);
-	--gray: rgba(0,0,0,0.54);
+	--gray: #666;
 	--pink: rgba(204, 27, 105, 1);
 	--pink-opaque: rgba(204, 27, 105, .05);
 	--pink-dark: rgba(178, 32, 97, 1);
@@ -235,7 +235,8 @@ label {
 [type="text"],
 [type="email"],
 [type="password"],
-[type="url"] {
+[type="url"],
+textarea {
 	padding: 1vmin 1vmax;
 	margin-bottom: 1em;
 	/*
@@ -280,6 +281,11 @@ menu button:first-of-type {
 
 menu button:last-of-type {
 	margin-right: 0;
+}
+
+footer p {
+	font-size: .8em;
+	color: var(--gray);
 }
 
 body > header {
@@ -692,6 +698,85 @@ body > header p {
 	display: block;
 }
 
+.chat {
+	max-width: 25em;
+}
+
+.chat ol {
+	list-style-type: none;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-flow: column nowrap;
+	    flex-flow: column nowrap;
+	-ms-flex-align: start;
+	    align-items: flex-start;
+	padding: 0;
+}
+
+.chat li {
+	margin-bottom: 1.5em;
+}
+
+.chat li:nth-of-type(even) {
+	-ms-flex-item-align: end;
+	    align-self: flex-end;
+}
+
+.chat p {
+	padding: 1vmin 1vmax;
+	margin-bottom: .5em;
+	border-radius: .25em;
+	background-color: #fff;
+}
+
+.chat footer {
+	font-size: .7em;
+	padding-bottom: .5em;
+	text-align: right;
+}
+
+.chat footer p {
+	margin-bottom: 0.25em;
+	padding: 0;
+	color: #666;
+	background-color: transparent;
+}
+
+.chat footer p[data-status="READ"] {
+	color: var(--green);
+}
+
+.chat footer p[data-status="DELIVERED"] {
+	color: var(--gray);
+}
+
+.chat form {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-flow: column nowrap;
+	    flex-flow: column nowrap;
+	padding: 0;
+}
+
+.chat label {
+	color: var(--yellow);
+	margin-bottom: .5em;
+}
+
+.chat textarea {
+	margin-bottom: .5em;
+	border-radius: .25em;
+}
+
+.chat [type="submit"] {
+	-ms-flex-item-align: end;
+	    align-self: flex-end;
+}
+
+.chat form:valid {
+	background-color: transparent;
+}
+
 /* This includes 'picture with subtitle' as well as 'media item'. */
 
 /* Tone down the typography scale in articles a litte for higher readability. */
@@ -755,8 +840,6 @@ article figcaption {
 }
 
 article figcaption footer {
-	font-size: .8em;
-	color: grey;
 	margin-bottom: 2em;
 }
 
@@ -856,6 +939,8 @@ article figcaption footer time {
 @media screen and (min-width: 48.3125em) {
 	.media-list article p {
 		display: block;
+		-moz-columns: calc(50vw - 2rem);
+		     columns: calc(50vw - 2rem);
 	}
 }
 
