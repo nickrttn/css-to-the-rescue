@@ -177,8 +177,7 @@ button:active {
 }
 
 button[type="reset"] {
-	background-color: var(--pink);
-	color: white;
+	background-color: #ccc;
 	box-shadow: 0 .1em 0 var(--pink-dark);
 }
 
@@ -305,4 +304,15 @@ body > header p {
 	background: var(--black);
 	margin-top: 5vmax;
 	padding: 5vmin 3vmax;
+}
+
+.visually-hidden {
+	position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
 }

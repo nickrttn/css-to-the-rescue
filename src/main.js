@@ -35,6 +35,15 @@
 })();
 
 (function() {
+	const login = document.querySelector('#login');
+	const dialog = document.querySelector('dialog');
+
+	if (dialog.showModal) {
+		login.classList.remove('visually-hidden');
+	}
+})();
+
+(function() {
 	const toggle = document.querySelector('#login');
 	const cancel = document.querySelector('.login-form [type="reset"]');
 	const submit = document.querySelector('.login-form [type="submit"]');
@@ -51,3 +60,12 @@
 	});
 })();
 
+(function(){
+	const dates = document.querySelectorAll('.chat [datetime]');
+	dates.forEach(date => {
+		const datetime = date.getAttribute('datetime');
+		const obj = new Date(datetime);
+		var options = { hour: "2-digit", minute: "2-digit" };
+		date.innerHTML = obj.toLocaleTimeString([], options);
+	});
+})();

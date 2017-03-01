@@ -188,8 +188,7 @@ button:active {
 }
 
 button[type="reset"] {
-	background-color: var(--pink);
-	color: white;
+	background-color: #ccc;
 	box-shadow: 0 .1em 0 var(--pink-dark);
 }
 
@@ -321,6 +320,17 @@ body > header p {
 	background: var(--black);
 	margin-top: 5vmax;
 	padding: 5vmin 3vmax;
+}
+
+.visually-hidden {
+	position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
 }
 
 [role="navigation"] :focus {
@@ -590,12 +600,17 @@ body > header p {
 	   -moz-appearance: none;
 	        appearance: none;
 	height: .5em;
-	-ms-flex-order: 1;
-	    order: 1;
+}
+
+@media screen and (min-width: 38.4375em) {
+	[role="status"] progress {
+		-ms-flex-order: 1;
+		    order: 1;
+	}
 }
 
 [role="status"] progress::-moz-progress-bar {
-	background-color: var(--green);
+	background-color: var(--yellow);
 	margin: 0;
 }
 
@@ -634,7 +649,7 @@ body > header p {
 	-webkit-clip-path: polygon(0 0, 5% 0, 10% 10%, 15% 0, 100% 0, 100% 90%, 15% 90%, 10% 100%, 5% 90%, 0 90%);
 	        clip-path: polygon(0 0, 5% 0, 10% 10%, 15% 0, 100% 0, 100% 90%, 15% 90%, 10% 100%, 5% 90%, 0 90%);
 	padding: 2vmin 0 2vmin;
-	padding-left: 20%;
+	padding-left: 5em;
 	position: relative;
 	transition: background ease-in-out 200ms;
 }
@@ -651,6 +666,7 @@ body > header p {
 
 @media screen and (min-width: 38.4375em) {
 	[role="status"] li {
+		padding-left: 2em;
 		-webkit-clip-path: polygon(0 0, 97% 0, 100% 50%, 97% 100%, 0 100%, 3% 50%);
 		        clip-path: polygon(0 0, 97% 0, 100% 50%, 97% 100%, 0 100%, 3% 50%);
 	}
@@ -955,7 +971,7 @@ article figcaption footer time {
 
 .media-list article p {
 	display: none;
-	font-size: .8em;
+	font-size: .9em;
 	-ms-flex-order: 3;
 	    order: 3;
 	margin-left: 2vmax;
