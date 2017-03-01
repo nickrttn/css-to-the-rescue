@@ -75,8 +75,18 @@ article figcaption footer time {
 
 @media screen and (min-width: 48.3125em) {
  .media-list {
-		margin: -1em;
- }
+		/*margin: -1em;*/
+  }
+}
+
+.media-list > h2 {
+	flex: 0 100%;
+	color: var(--yellow);
+	padding: 0 5vw;
+}
+
+.media-list > p {
+	padding: 0 5vw;
 }
 
 .media-list article {
@@ -90,17 +100,12 @@ article figcaption footer time {
 }
 
 @media screen and (min-width: 48.3125em) {
- .media-list article {
+  .media-list article {
 		max-height: auto;
- }
-}
-
-@media screen and (min-width: 48.3125em) {
-	.media-list article {
-		margin: 1em;
-		flex: 0 calc(33% - 2em);
+		margin: 2vw;
+		flex: 0 calc(33% - 4vw);
 		flex-flow: row wrap;
-	}
+  }
 }
 
 .media-list article:hover {
@@ -110,7 +115,6 @@ article figcaption footer time {
 .media-list article h1,
 .media-list article p {
 	flex: 0 1 auto;
-	margin-left: 2vmax;
 }
 
 .media-list article h1 {
@@ -128,14 +132,11 @@ article figcaption footer time {
 	display: none;
 	font-size: .9em;
 	order: 3;
-	margin-left: 2vmax;
-	margin-right: 2vmax;
 }
 
 @media screen and (min-width: 48.3125em) {
 	.media-list article p {
 		display: block;
-		columns: calc(50vw - 2rem);
 	}
 }
 
@@ -143,7 +144,8 @@ article figcaption footer time {
 	flex: 0 15vw;
 	order: 1;
 	margin-bottom: 1em;
-	object-fit: contain;
+	object-fit: cover;
+	max-height: 30vh;
 }
 
 @media screen and (min-width: 48.3125em) {
@@ -158,6 +160,7 @@ article figcaption footer time {
 	flex: 0 100%;
 	flex-flow: row wrap;
 	margin-bottom: 1.5em;
+	margin-top: 3vmin;
 	max-height: auto;
 }
 

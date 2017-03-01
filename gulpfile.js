@@ -3,10 +3,12 @@ var browserSync = require('browser-sync').create();
 var gulp = require('gulp');
 var postcss = require('gulp-postcss');
 var atImport = require('postcss-import');
+var customProperties = require('postcss-custom-properties');
 
 gulp.task('prefix', function() {
   var plugins = [
 	  atImport,
+	  customProperties,
     autoprefixer({ browsers: ['last 3 versions'] }),
   ];
 
@@ -19,6 +21,12 @@ gulp.task('prefix', function() {
 gulp.task('html', function() {
 	return gulp.src('./src/*.html')
 		.pipe(gulp.dest('./build'))
+		.pipe(browserSync.stream());
+});
+
+gulp.task('images', function() {
+	return gulp.src('./src/images/*.jpg')
+		.pipe(gulp.dest('./build/images'))
 		.pipe(browserSync.stream());
 });
 
@@ -38,6 +46,7 @@ gulp.task('watch', ['prefix'], function() {
 	gulp.watch("./src/**/*.css", ['prefix']);
 	gulp.watch('./src/*.html', ['html']);
 	gulp.watch('./src/*.js', ['js']);
+	gulp.watch("./src/images/*.jpg", ['images']);
 });
 
 gulp.task('default', ['watch']);

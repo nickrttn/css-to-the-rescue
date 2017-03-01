@@ -1,3 +1,7 @@
+[role="navigation"] {
+	margin-bottom: 10vw;
+}
+
 [role="navigation"] :focus {
 	outline-color: var(--yellow);
 }
