@@ -1,0 +1,34 @@
+.styleguide {
+	background-color: #ffeb3b;
+}
+
+.styleguide header {
+	-ms-flex-flow: column nowrap;
+	    flex-flow: column nowrap;
+}
+
+.styleguide h2,
+.styleguide h4,
+.styleguide h5,
+.styleguide h6,
+.styleguide p,
+.styleguide ol,
+.styleguide li {
+	color: rgba(0,0,0,0.87);
+}
+
+.component {
+	background: rgba(0,0,0,0.87);
+	margin-top: 5vmax;
+	padding: 5vmin 3vmax;
+}
+
+.component p {
+	color: white;
+}
+
+@media screen and (min-width: 48.3125em) {
+  .component .media-list {
+  	padding: 0 calc(5vw - 3vmax);
+  }
+}

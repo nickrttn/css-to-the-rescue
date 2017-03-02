@@ -12,7 +12,7 @@ gulp.task('prefix', function() {
     autoprefixer({ browsers: ['last 3 versions'] }),
   ];
 
-  return gulp.src('./src/css/styles.css')
+  return gulp.src(['./src/css/styles.css', './src/css/styleguide.css'])
     .pipe(postcss(plugins))
     .pipe(gulp.dest('./build/css'))
     .pipe(browserSync.stream());

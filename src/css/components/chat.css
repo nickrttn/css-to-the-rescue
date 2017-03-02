@@ -1,5 +1,18 @@
 .chat {
-	max-width: 25em;
+	max-width: 22em;
+	margin-bottom: 3rem;
+	flex: 1;
+}
+
+@media screen and (min-width: 48.3125em) {
+	article figure {
+		flex: 0 30%;
+		padding: 0;
+	}
+}
+
+.chat h3 {
+	margin-top: 0;
 }
 
 .chat ol {
@@ -8,6 +21,7 @@
 	flex-flow: column nowrap;
 	align-items: flex-start;
 	padding: 0;
+	margin-bottom: 0;
 }
 
 .chat li {
@@ -18,11 +32,12 @@
 	align-self: flex-end;
 }
 
-.chat p {
+.chat li p {
 	padding: 1vmin 1vmax;
 	margin-bottom: .5em;
 	border-radius: .25em;
 	background-color: #fff;
+	color: var(--black);
 }
 
 .chat footer {

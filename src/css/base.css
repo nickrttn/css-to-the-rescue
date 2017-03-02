@@ -25,7 +25,7 @@
 	--blue-light: #0ebeff;
 	--blue-dark: #016de8;
 	--green: #33D473;
-	--green-opaque: rgba(51, 212, 115, .1);
+	--green-opaque: rgba(51, 212, 115, .6);
 }
 
 /* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
@@ -47,10 +47,6 @@ body {
 	margin: 0;
 	background-color: var(--black);
 	color: white;
-}
-
-.styleguide {
-	background-color: var(--yellow);
 }
 
 h1, h2, h3 {
@@ -107,14 +103,9 @@ h3 {
   margin-bottom: 0em;
 }
 
-.styleguide h4,
-.styleguide h5,
-.styleguide h6,
-.styleguide p,
-.styleguide ol,
-.styleguide li,
-.styleguide label {
-	color: var(--black);
+section h2,
+main article h3 {
+	color: var(--yellow);
 }
 
 p {
@@ -167,11 +158,11 @@ img {
 
 form {
 	padding: 4vmin 4vmax;
-	transition: background 120ms ease-in-out;
+	transition: background 200ms ease-in-out;
 }
 
 form:invalid {
-	background-color: var(--yellow-opaque);
+	background-color: var(--yellow);
 }
 
 form:valid {
@@ -225,7 +216,7 @@ button[type="reset"]:active {
 	box-shadow: inset 0 .1em 0 var(--pink-dark);
 }
 
-/*button[type="submit"] {
+button[type="submit"] {
 	background-color: var(--green);
 	box-shadow: 0 .1em 0 var(--yellow-dark);
 }
@@ -241,12 +232,10 @@ button[type="submit"]:focus {
 
 button[type="submit"]:active {
 	box-shadow: inset 0 .1em 0 var(--yellow-dark);
-}*/
+}
 
 label {
 	color: var(--black);
-	display: inline-flex;
-	align-items: center;
 }
 
 [type="text"],
@@ -256,12 +245,7 @@ label {
 textarea {
 	padding: 1vmin 1vmax;
 	margin-bottom: 1em;
-	/*
-		if the pixel size is 16px at a viewport size of 320,
-		this should not be > 240px on small screen and will
-		always fit in the viewport.
-	*/
-	min-width: 15em;
+	border: 1px solid black;
 }
 
 [type="text"]:focus,
@@ -320,8 +304,18 @@ body > section {
 
 body > header > *,
 body > section > *,
-main > article > * {
+main > article > *,
+main > section > * {
 	padding: 0 5vw;
+}
+
+body header {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: baseline;
+	padding: 0;
+	margin-bottom: 0;
 }
 
 body > header h1 {
@@ -333,13 +327,13 @@ body > header p {
 }
 
 main article {
+	display: flex;
 	margin-bottom: 5vw;
+	flex-flow: row wrap;
 }
 
-.component {
-	background: var(--black);
-	margin-top: 5vmax;
-	padding: 5vmin 3vmax;
+main article h1 {
+	flex: 0 100%;
 }
 
 .visually-hidden {

@@ -1,0 +1,48 @@
+:root {
+	--yellow: #ffeb3b;
+	--yellow-opaque: rgba(255, 235, 59, 0.1);
+	--yellow-dark: #b2a317;
+	--black: rgba(0,0,0,0.87);
+	--gray: #666;
+	--pink: rgba(204, 27, 105, 1);
+	--pink-opaque: rgba(204, 27, 105, .05);
+	--pink-dark: rgba(178, 32, 97, 1);
+	--blue-light: #0ebeff;
+	--blue-dark: #016de8;
+	--green: #33D473;
+	--green-opaque: rgba(51, 212, 115, .6);
+}
+
+.styleguide {
+	background-color: var(--yellow);
+}
+
+.styleguide header {
+	flex-flow: column nowrap;
+}
+
+.styleguide h2,
+.styleguide h4,
+.styleguide h5,
+.styleguide h6,
+.styleguide p,
+.styleguide ol,
+.styleguide li {
+	color: var(--black);
+}
+
+.component {
+	background: var(--black);
+	margin-top: 5vmax;
+	padding: 5vmin 3vmax;
+}
+
+.component p {
+	color: white;
+}
+
+@media screen and (min-width: 48.3125em) {
+  .component .media-list {
+  	padding: 0 calc(5vw - 3vmax);
+  }
+}

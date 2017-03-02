@@ -1,5 +1,13 @@
 [role="navigation"] {
-	margin-bottom: 10vw;
+	margin-bottom: 8vw;
+	flex: 1;
+	order: 1;
+}
+
+@media screen and (min-width: 52.5em) {
+	[role="navigation"] {
+		order: 0;
+	}
 }
 
 [role="navigation"] :focus {
